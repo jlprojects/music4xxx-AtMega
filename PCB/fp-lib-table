@@ -1,0 +1,4 @@
+(fp_lib_table
+  (lib (name musix5xxx-custom)(type KiCad)(uri ${KIPRJMOD}/musix5xxx-custom.pretty)(options "")(descr ""))
+  (lib (name teensy)(type KiCad)(uri ${KIPRJMOD}/teensy.pretty)(options "")(descr ""))
+)

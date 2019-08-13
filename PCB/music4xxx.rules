@@ -1,0 +1,120 @@
+
+(rules PCB music4xxx
+  (snap_angle 
+    fortyfive_degree
+  )
+  (autoroute_settings
+    (fanout off)
+    (autoroute on)
+    (postroute on)
+    (vias on)
+    (via_costs 50)
+    (plane_via_costs 5)
+    (start_ripup_costs 100)
+    (start_pass_no 129)
+    (layer_rule F.Cu
+      (active on)
+      (preferred_direction vertical)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 2.3)
+    )
+    (layer_rule B.Cu
+      (active on)
+      (preferred_direction horizontal)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 1.8)
+    )
+  )
+  (rule
+    (width 300.0)
+    (clear 300.2)
+    (clear 150.0 (type smd_to_turn_gap))
+    (clear 75.0 (type smd_smd))
+  )
+  (padstack "Via[0-1]_700:400_um"
+    (shape
+      (circle F.Cu 700.0 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 700.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (padstack "Via[0-1]_800:400_um"
+    (shape
+      (circle F.Cu 800.0 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 800.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (via 
+    "Via[0-1]_700:400_um" "Via[0-1]_700:400_um" default
+  )
+  (via 
+    "Via[0-1]_800:400_um" "Via[0-1]_800:400_um" default
+  )
+  (via 
+    "Via[0-1]_700:400_um-kicad_default" "Via[0-1]_700:400_um" "kicad_default"
+  )
+  (via 
+    "Via[0-1]_800:400_um-kicad_default" "Via[0-1]_800:400_um" "kicad_default"
+  )
+  (via 
+    "Via[0-1]_700:400_um-PWR" "Via[0-1]_700:400_um" PWR
+  )
+  (via 
+    "Via[0-1]_800:400_um-PWR" "Via[0-1]_800:400_um" PWR
+  )
+  (via_rule
+    default "Via[0-1]_700:400_um"
+  )
+  (via_rule
+    "kicad_default" "Via[0-1]_700:400_um-kicad_default"
+  )
+  (via_rule
+    PWR "Via[0-1]_800:400_um-PWR"
+  )
+  (class default
+    (clearance_class default)
+    (via_rule default)
+    (rule
+      (width 300.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class "kicad_default"
+    "Net-(D1-Pad1)" "Net-(D1-Pad2)" "Net-(D2-Pad2)" "Net-(IC1-Pad6)" "Net-(IC1-Pad7)" /PB3 /PB4 /PB2
+    /PB5 /PB1 /PB6 /PB0 /PB7 /CB1 "Net-(J1-Pad4)" "Net-(R5-Pad2)"
+    /CB2 "Net-(TEENSY1-Pad3)" "Net-(J1-Pad1)" "Net-(J1-Pad3)" "Net-(J3-Pad3)" "Net-(C4-Pad1)" "Net-(J4-Pad8)" "Net-(J4-Pad7)"
+    "Net-(J4-Pad6)" "Net-(J4-Pad5)" "Net-(J4-Pad4)" "Net-(J4-Pad3)" "Net-(J4-Pad2)" "Net-(J4-Pad1)" "Net-(J3-Pad2)" /OE0
+    /OE7 /OE6 /OE5 /OE4 /OE3 /OE2 /OE1 /SRdata
+    /SRlatch /SRclk "Net-(IC3-Pad10)" "Net-(IC3-Pad9)" "Net-(IC4-Pad10)" "Net-(IC4-Pad9)" "Net-(IC5-Pad10)" "Net-(IC5-Pad9)"
+    "Net-(IC6-Pad10)" "Net-(IC6-Pad9)" "Net-(IC7-Pad10)" "Net-(IC7-Pad9)" "Net-(IC8-Pad10)" "Net-(IC8-Pad9)" "Net-(IC9-Pad10)" "Net-(IC10-Pad14)"
+    "Net-(IC10-Pad10)" "Net-(IC10-Pad9)" /FS1 /FS2 "Net-(J4-Pad10)" "Net-(J4-Pad9)" "Net-(SW1-Pad2)" "Net-(TEENSY1-Pad14)"
+    "Net-(TEENSY1-Pad11)" "Net-(TEENSY1-Pad10)" "Net-(TEENSY1-Pad4)" /SRclk' /SRdata' /SRlatch' "Net-(TEENSY1-Pad5)" "Net-(IC11-Pad13)"
+    "Net-(IC11-Pad6)" "Net-(IC11-Pad11)"
+    (clearance_class "kicad_default")
+    (via_rule kicad_default)
+    (rule
+      (width 300.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class PWR
+    GND +5V +3V3
+    (clearance_class PWR)
+    (via_rule PWR)
+    (rule
+      (width 800.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+)
